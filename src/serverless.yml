@@ -1,0 +1,25 @@
+service: rest_api_roman_numeral
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+
+functions:
+  rest_api_roman_numeral:
+    handler: handler.addition
+    events:
+      - http:
+          path: add/{str1}/{str2}
+          method: get
+          cors: true
+
+
+
+
+
+plugins:
+  - serverless-offline
